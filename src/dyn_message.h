@@ -195,6 +195,8 @@
   ACTION(REQ_REDIS_PFADD)        /* redis requests - hyperloglog */            \
   ACTION(REQ_REDIS_PFCOUNT)                                                    \
   ACTION(REQ_REDIS_CONFIG)                                                     \
+  ACTION(REQ_REDIS_FLUSHDB)                                                    \
+  ACTION(REQ_REDIS_FLUSHALL)                                                   \
   ACTION(REQ_REDIS_SCRIPT)                                                     \
   ACTION(REQ_REDIS_SCRIPT_LOAD)                                                \
   ACTION(REQ_REDIS_SCRIPT_EXISTS)                                              \

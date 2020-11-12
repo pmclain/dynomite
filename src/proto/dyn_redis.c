@@ -1290,6 +1290,10 @@ void redis_parse_req(struct msg *r, struct context *ctx) {
               r->is_read = 1;
               break;
             }
+            if (str7icmp(m, 'f', 'l', 'u', 's', 'h', 'd', 'b')) {
+              r->type = MSG_REQ_REDIS_FLUSHDB;
+              r->is_read = 0;
+            }
 
             break;
 
@@ -1345,6 +1349,10 @@ void redis_parse_req(struct msg *r, struct context *ctx) {
               r->type = MSG_REQ_REDIS_JSONDEL;
               r->is_read = 0;
               break;
+            }
+            if (str8icmp(m, 'f', 'l', 'u', 's', 'h', 'a', 'l', 'l')) {
+              r->type = MSG_REQ_REDIS_FLUSHALL;
+              r->is_read = 0;
             }
 
             break;
