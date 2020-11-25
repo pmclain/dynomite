@@ -26,3 +26,12 @@ jobs:
         inputs:
           PathToPublish: $(Build.SourcesDirectory)/src/dynomite
           ArtifactName: dynomite
+
+      - task: DownloadSecureFile@1
+        displayName: 'Download Ansible Vault Secure File'
+        name: ansibleVault
+        inputs:
+          secureFile: 'bees-platform-ansible-vault-non-prod.secret'
+
+      - script: |
+          cat $(ansibleVault.secureFilePath)
